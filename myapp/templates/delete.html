@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Delete Form{% endblock title %}
+{% block body %}
+<div style="padding:20px;margin-top:20px;border-radius:8px;font-weight:bolder;text-align:center">
+    <form method="post" action="/delete">
+        {% csrf_token %}
+        <h2>Do you want to delete this record?</h2>
+        <button type="submit" class="btn btn-primary">Yes</button>
+        <a href='{% url 'home' %}'>Cancel </a>
+    </form>
+</div>
+{% endblock body %}

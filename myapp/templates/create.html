@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}Create Form{% endblock title %} {% block body %}
+<h1 style="padding:6px;text-align:center"><span class="badge bg-dark">Personal Information Form</span>
+</h1>
+<div style="padding:12px;margin-left:650px;margin-right:650px;margin-top:20px;border-radius:8px;font-weight:bolder"
+    class="bg-info">
+    <form method="post" action="{% url 'create' %}">
+        {% csrf_token %} <table class="table table-striped">
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </form>
+</div>
+<br>
+<center><a href="{% url 'home' %}" class="btn btn-primary">View Records</a></center>
+{% endblock body %}

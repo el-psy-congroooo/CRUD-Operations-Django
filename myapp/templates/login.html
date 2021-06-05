@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}LogIn{% endblock title %}
+{% block body %}
+<h1 style="padding:6px;text-align:center"><span class="badge bg-dark">LogIn</span>
+</h1>
+<div style="padding:12px;margin-left:650px;margin-right:650px;margin-top:20px;border-radius:8px;font-weight:bolder"
+    class="bg-info">
+    {% for message in messages %}
+    <div class="alert alert-warning">
+        <a class="close" href="/login" data-dismiss="alert">×</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %} <table class="table table-striped">
+            {{ form.as_table }}
+        </table>
+        <center><div class="g-recaptcha" data-sitekey="6LcBSYEaAAAAACl5cjv5xcdp9TDIiYSJ4cBS1EOA"></div><br>
+        <button type="submit" class="btn btn-success">LogIn</button></center>
+    </form>
+</div>
+<br>
+<center><a href="{% url 'signup' %}" class="btn btn-primary">SignUp</a></center>
+{% endblock body %}

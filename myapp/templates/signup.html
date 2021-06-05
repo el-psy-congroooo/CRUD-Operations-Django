@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}SignUp{% endblock title %} {% block body %}
+<h1 style="padding:6px;text-align:center"><span class="badge bg-dark">SignUp</span>
+</h1>
+<div style="padding:12px;margin-left:650px;margin-right:650px;margin-top:20px;border-radius:8px;font-weight:bolder"
+    class="bg-info">
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <table class="table table-striped">
+            {{ form.as_table }}
+        </table>
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </form>
+</div>
+<br>
+<center><a href="{% url 'login' %}" class="btn btn-primary">LogIn</a></center>
+{% endblock body %}
